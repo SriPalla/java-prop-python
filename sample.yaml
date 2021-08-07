@@ -1,13 +1,7 @@
 envProp:
-  - name: spring_datasource_url
-    value: jdbc:h2:mem:testdb?autoconnect=true
-  - name: spring_datasource_driverClassName
-    value: org.h2.Driver
-  - name: spring_datasource_username
-    value: sa
-  - name: spring_datasource_password
-    value: password
-  - name: spring_jpa_database-platform
-    value: org.hibernate.dialect.H2Dialect
-  - name: spring_datasource_timeout
-    value: '3000'
+  spring_datasource_driverClassName: org.h2.Driver
+  spring_datasource_password: password
+  spring_datasource_timeout: '3000'
+  spring_datasource_url: jdbc:h2:mem:testdb?autoconnect=true
+  spring_datasource_username: sa
+  spring_jpa_database-platform: org.hibernate.dialect.H2Dialect

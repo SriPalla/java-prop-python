@@ -1,25 +1,20 @@
 import yaml
 
 import jprops
-import ruamel.yaml
 import argparse
 
 
 def main(filepath):
     props = jprops.getJavaProperties(open(filepath))
     yamlDict = dict()
-    envProp = []
+    envProp = dict()
     for key, value in props.items():
-        entry = dict()
-        entry['name'] = key
-        entry['value'] = value
-        envProp.append(entry)
+        envProp[key] = value
 
-    yamlDict['envProp'] = envProp
+    yamlDict['env'] = envProp
     print(yamlDict)
     yamlFile = open("sample.yaml", "w")
-    yaml = ruamel.yaml.YAML()
-    yaml.indent(sequence=4, offset=2)
+
     yaml.dump(yamlDict, yamlFile)
 
 
