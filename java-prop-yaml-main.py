@@ -2,10 +2,11 @@ import yaml
 
 import jprops
 import ruamel.yaml
+import argparse
 
-# Using jprops to get properties from a java style property file
-if __name__ == '__main__':
-    props = jprops.getJavaProperties(open("sample.properties"))
+
+def main(filepath):
+    props = jprops.getJavaProperties(open(filepath))
     yamlDict = dict()
     envProp = []
     for key, value in props.items():
@@ -21,3 +22,15 @@ if __name__ == '__main__':
     yaml.indent(sequence=4, offset=2)
     yaml.dump(yamlDict, yamlFile)
 
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-f", "--file", help="input file name with path", required=True)
+    args = parser.parse_args()
+    return args
+
+
+# Using jprops to get properties from a java style property file
+if __name__ == '__main__':
+    inputs = parse_args()
+    main(inputs.file)
