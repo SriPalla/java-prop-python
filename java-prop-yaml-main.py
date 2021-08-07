@@ -11,7 +11,7 @@ def main(filepath):
     for key, value in props.items():
         envProp[key] = value
 
-    yamlDict['env'] = envProp
+    yamlDict['applicationProp'] = envProp
     print(yamlDict)
     yamlFile = open("sample.yaml", "w")
 
